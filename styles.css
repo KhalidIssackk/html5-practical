@@ -1,0 +1,714 @@
+/* ============================================
+   CSS3 Practical Stylesheet
+   HTML5 + CSS3 Lab - JKUAT
+   ============================================ */
+
+/* ============================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================ */
+:root {
+    /* Colors - Light Theme */
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #6b7280;
+    --brand: #2563eb;
+    --brand-contrast: #ffffff;
+    --accent: #3b82f6;
+    --border: #e5e7eb;
+    --surface: #f9fafb;
+    --code-bg: #f3f4f6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
+    
+    /* Type Scale (1.25 ratio) */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.563rem;
+    --text-3xl: 1.953rem;
+    --text-4xl: 2.441rem;
+    
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 3rem;
+    --space-10: 4rem;
+    
+    /* Layout */
+    --max-width: 1200px;
+    --content-width: 65ch;
+    --radius: 0.5rem;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f172a;
+        --fg: #f1f5f9;
+        --muted: #94a3b8;
+        --brand: #3b82f6;
+        --brand-contrast: #ffffff;
+        --accent: #60a5fa;
+        --border: #334155;
+        --surface: #1e293b;
+        --code-bg: #1e293b;
+    }
+}
+
+/* ============================================
+   2. BASE RESET & TYPOGRAPHY
+   ============================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--fg);
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: var(--space-4);
+    color: var(--fg);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+
+p {
+    margin-bottom: var(--space-4);
+    max-width: var(--content-width);
+}
+
+a {
+    color: var(--brand);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* ============================================
+   3. SKIP LINK (Accessibility)
+   ============================================ */
+body > a[href="#main"] {
+    position: absolute;
+    left: -9999px;
+    top: var(--space-2);
+    z-index: 999;
+    padding: var(--space-2) var(--space-4);
+    background: var(--brand);
+    color: var(--brand-contrast);
+    font-weight: 600;
+    border-radius: var(--radius);
+}
+
+body > a[href="#main"]:focus {
+    left: var(--space-4);
+    outline: 3px solid var(--accent);
+}
+
+/* ============================================
+   4. HEADER & NAVIGATION
+   ============================================ */
+body > header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-4) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+body > header > h1 {
+    max-width: var(--max-width);
+    margin: 0 auto var(--space-3);
+    padding: 0 var(--space-4);
+    font-size: var(--text-2xl);
+}
+
+nav[aria-label="Primary"] {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+nav[aria-label="Primary"] ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+nav[aria-label="Primary"] li {
+    margin: 0;
+}
+
+nav[aria-label="Primary"] a {
+    display: block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+nav[aria-label="Primary"] a:hover {
+    background: var(--brand);
+    color: var(--brand-contrast);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+nav[aria-label="Primary"] a[aria-current="page"] {
+    background: var(--brand);
+    color: var(--brand-contrast);
+    border-color: var(--brand);
+}
+
+/* ============================================
+   5. MAIN LAYOUT (Grid)
+   ============================================ */
+main {
+    flex: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-4);
+    width: 100%;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+    article {
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    article > header,
+    article > section {
+        grid-column: 1 / 2;
+    }
+    
+    article > aside {
+        grid-column: 2 / 3;
+        grid-row: 2 / span 3;
+    }
+    
+    article > footer {
+        grid-column: 1 / -1;
+    }
+}
+
+section {
+    margin-bottom: var(--space-6);
+}
+
+/* ============================================
+   6. CARDS
+   ============================================ */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+}
+
+/* ============================================
+   7. ASIDE (Sidebar)
+   ============================================ */
+aside {
+    background: var(--code-bg);
+    border-left: 4px solid var(--brand);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+}
+
+aside h4 {
+    color: var(--brand);
+    margin-bottom: var(--space-3);
+}
+
+/* ============================================
+   8. INLINE SEMANTIC ELEMENTS
+   ============================================ */
+code, kbd, samp {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+}
+
+code {
+    background: var(--code-bg);
+    color: var(--accent);
+}
+
+kbd {
+    background: var(--fg);
+    color: var(--bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+    padding: 0.125rem 0.375rem;
+    font-weight: 600;
+}
+
+samp {
+    background: var(--code-bg);
+    color: var(--success);
+    border-left: 3px solid var(--success);
+    padding-left: var(--space-2);
+}
+
+mark {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.125rem 0.25rem;
+    border-radius: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+    mark {
+        background: #451a03;
+        color: #fef3c7;
+    }
+}
+
+abbr[title] {
+    text-decoration: underline dotted;
+    cursor: help;
+    color: var(--brand);
+}
+
+/* ============================================
+   9. BLOCKQUOTE & CITE
+   ============================================ */
+blockquote {
+    border-left: 4px solid var(--brand);
+    padding-left: var(--space-4);
+    margin: var(--space-5) 0;
+    font-style: italic;
+    color: var(--muted);
+    background: var(--surface);
+    padding: var(--space-4);
+    border-radius: var(--radius);
+}
+
+blockquote footer {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+    font-style: normal;
+}
+
+cite {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--brand);
+}
+
+/* ============================================
+   10. LISTS
+   ============================================ */
+ul, ol {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-5);
+}
+
+li {
+    margin-bottom: var(--space-2);
+}
+
+dl {
+    margin-bottom: var(--space-4);
+}
+
+dt {
+    font-weight: 700;
+    color: var(--brand);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-1);
+}
+
+dd {
+    margin-left: var(--space-5);
+    margin-bottom: var(--space-3);
+    color: var(--muted);
+}
+
+/* ============================================
+   11. TABLES
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-5) 0;
+    background: var(--bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+caption {
+    font-weight: 700;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+    text-align: left;
+    color: var(--fg);
+    padding: var(--space-3);
+    background: var(--surface);
+}
+
+thead {
+    background: var(--brand);
+    color: var(--brand-contrast);
+}
+
+th, td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--surface);
+}
+
+tbody tr:hover {
+    background: var(--code-bg);
+}
+
+tfoot {
+    background: var(--surface);
+    font-weight: 600;
+}
+
+/* Responsive table wrapper */
+.table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+}
+
+@media (max-width: 768px) {
+    th, td {
+        padding: var(--space-2) var(--space-3);
+        font-size: var(--text-sm);
+    }
+}
+
+/* ============================================
+   12. MEDIA ELEMENTS
+   ============================================ */
+img, video, audio {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: var(--space-5) 0;
+    background: var(--surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+figure img, 
+figure video {
+    width: 100%;
+    display: block;
+}
+
+figcaption {
+    padding: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--muted);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+}
+
+audio {
+    width: 100%;
+    margin: var(--space-4) 0;
+}
+
+video {
+    border-radius: var(--radius);
+}
+
+/* ============================================
+   13. INTERACTIVE ELEMENTS
+   ============================================ */
+details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+summary {
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    padding: var(--space-2);
+    margin: calc(-1 * var(--space-2));
+    border-radius: var(--radius);
+    transition: background 0.2s ease;
+}
+
+summary:hover {
+    background: var(--code-bg);
+}
+
+summary:focus {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+details[open] summary {
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
+}
+
+dialog[open] {
+    border: 2px solid var(--brand);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-lg);
+    background: var(--bg);
+    color: var(--fg);
+    max-width: 500px;
+}
+
+/* ============================================
+   14. PROGRESS & METER
+   ============================================ */
+progress, meter {
+    width: 200px;
+    height: 20px;
+    vertical-align: middle;
+    margin: 0 var(--space-2);
+}
+
+progress {
+    appearance: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+progress::-webkit-progress-value {
+    background: var(--brand);
+    border-radius: var(--radius);
+    transition: width 0.3s ease;
+}
+
+progress::-moz-progress-bar {
+    background: var(--brand);
+    border-radius: var(--radius);
+}
+
+meter {
+    appearance: none;
+    border-radius: var(--radius);
+}
+
+meter::-webkit-meter-bar {
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+meter::-webkit-meter-optimum-value {
+    background: var(--success);
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: var(--warning);
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #ef4444;
+}
+
+/* ============================================
+   15. ADDRESS & FOOTER
+   ============================================ */
+address {
+    font-style: normal;
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+article > footer {
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+body > footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: var(--space-5) var(--space-4);
+    text-align: center;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    margin-top: auto;
+}
+
+/* ============================================
+   16. UTILITY CLASSES
+   ============================================ */
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+
+.text-center { text-align: center; }
+.text-muted { color: var(--muted); }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ============================================
+   17. ANIMATIONS & TRANSITIONS
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   18. REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   19. RESPONSIVE BREAKPOINTS
+   ============================================ */
+@media (max-width: 480px) {
+    :root {
+        --text-4xl: 1.953rem;
+        --text-3xl: 1.563rem;
+    }
+    
+    body > header > h1 {
+        font-size: var(--text-xl);
+    }
+    
+    nav[aria-label="Primary"] ul {
+        flex-direction: column;
+    }
+    
+    nav[aria-label="Primary"] a {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        padding: var(--space-8) var(--space-4);
+    }
+}
