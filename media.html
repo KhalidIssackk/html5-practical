@@ -1,1 +1,109 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Media Gallery — HTML5 Practical</title>
+    <meta name="description" content="Demonstration of HTML5 media elements including responsive images, audio, and video with captions.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://yourusername.github.io/html5-practical/media.html">
+</head>
+<body>
+    <a href="#main">Skip to content</a>
+    
+    <header>
+        <h1>HTML5 Practical Project</h1>
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="media.html" aria-current="page">Media</a></li>
+                <li><a href="extras.html">Extras</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <article>
+            <header>
+                <h2>Media Gallery</h2>
+                <p>Exploring HTML5 multimedia capabilities with responsive images, audio, and video.</p>
+            </header>
+            
+            <section>
+                <h3>Responsive Images</h3>
+                <p>The <code>&lt;picture&gt;</code> element allows browsers to select the most appropriate image based on screen size and resolution, improving performance and user experience.</p>
+                
+                <figure>
+                    <picture>
+                        <source srcset="assets/images/hero-large.jpg" media="(min-width: 1000px)">
+                        <source srcset="assets/images/hero-medium.jpg" media="(min-width: 600px)">
+                        <img src="assets/images/hero-small.jpg" alt="JKUAT campus innovation hub featuring modern architecture and collaborative spaces">
+                    </picture>
+                    <figcaption>Responsive image using the <code>&lt;picture&gt;</code> element with multiple source options for different viewport sizes.</figcaption>
+                </figure>
+            </section>
+            
+            <section>
+                <h3>Audio Element</h3>
+                <p>HTML5 provides native audio playback without requiring external plugins. The controls attribute adds play, pause, and volume controls.</p>
+                
+                <figure>
+                    <audio controls>
+                        <source src="assets/audio/sample.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element. Please upgrade to a modern browser.
+                    </audio>
+                    <figcaption>Sample audio demonstration with native HTML5 controls.</figcaption>
+                </figure>
+            </section>
+            
+            <section>
+                <h3>Video with Captions</h3>
+                <p>The <code>&lt;video&gt;</code> element supports multiple formats and includes built-in caption support using <abbr title="Web Video Text Tracks">WebVTT</abbr> files for accessibility.</p>
+                
+                <figure>
+                    <video controls width="640" poster="assets/images/hero-medium.jpg">
+                        <source src="assets/video/sample.mp4" type="video/mp4">
+                        <source src="assets/video/sample.webm" type="video/webm">
+                        <track src="assets/captions/sample.vtt" kind="captions" srclang="en" label="English" default>
+                        Sorry, your browser doesn't support embedded videos. Please try viewing on a modern browser like Chrome, Firefox, or Edge.
+                    </video>
+                    <figcaption>Video demonstration with WebVTT caption track. Click the CC button to toggle captions on or off.</figcaption>
+                </figure>
+            </section>
+            
+            <section>
+                <h3>Additional Media Examples</h3>
+                
+                <h4>Multiple Images with Alternative Text</h4>
+                <figure>
+                    <img src="assets/images/hero-small.jpg" alt="Students collaborating in the JKUAT innovation lab with laptops and whiteboards">
+                    <figcaption>Proper alternative text describes the content and context of images for screen reader users.</figcaption>
+                </figure>
+            </section>
+            
+            <aside aria-label="Media best practices">
+                <h4>Media Best Practices</h4>
+                <ul>
+                    <li>Always provide alternative text for images</li>
+                    <li>Include captions for video content</li>
+                    <li>Offer multiple format options for broader browser support</li>
+                    <li>Use responsive images to optimize performance</li>
+                    <li>Provide fallback content for older browsers</li>
+                </ul>
+            </aside>
+            
+            <footer>
+                <address>
+                    Contact: <a href="mailto:your.email@student.jkuat.ac.ke">your.email@student.jkuat.ac.ke</a><br>
+                    Department of Computing<br>
+                    Jomo Kenyatta University of Agriculture and Technology
+                </address>
+            </footer>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; <time datetime="2025">2025</time> Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
