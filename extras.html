@@ -1,1 +1,188 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Extras — HTML5 Practical</title>
+    <meta name="description" content="Advanced HTML5 features including tables, interactive elements, and progress indicators.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://yourusername.github.io/html5-practical/extras.html">
+</head>
+<body>
+    <a href="#main">Skip to content</a>
+    
+    <header>
+        <h1>HTML5 Practical Project</h1>
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="extras.html" aria-current="page">Extras</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <article>
+            <header>
+                <h2>Advanced HTML5 Features</h2>
+                <p>Demonstrating tables, interactive elements, and semantic markup for data and content.</p>
+            </header>
+            
+            <section>
+                <h3>Data Tables</h3>
+                <p>Properly structured tables improve accessibility and data comprehension. Notice the use of <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code> elements.</p>
+                
+                <table>
+                    <caption>Weekly Study Plan for HTML5 and CSS3 Course</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Week</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>HTML5 Semantics and Structure</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Advanced HTML5 APIs</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>CSS3 Fundamentals</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Responsive Design with Flexbox</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>CSS Grid Layout</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="row" colspan="2">Total Study Hours</th>
+                            <td>36</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            
+            <section>
+                <h3>Interactive Elements (No JavaScript Required)</h3>
+                
+                <h4>Details and Summary</h4>
+                <p>The <code>&lt;details&gt;</code> element creates collapsible content without any JavaScript.</p>
+                
+                <details>
+                    <summary>What is semantic HTML?</summary>
+                    <p>Semantic HTML uses meaningful tags that describe their content and role in the document structure. Instead of using generic <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> elements everywhere, semantic HTML employs elements like <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;footer&gt;</code>.</p>
+                    <p>This approach improves accessibility, SEO, and code maintainability by making the document structure clear to both humans and machines.</p>
+                </details>
+                
+                <details>
+                    <summary>Why use the picture element?</summary>
+                    <p>The <code>&lt;picture&gt;</code> element enables responsive images by allowing developers to specify multiple image sources. The browser selects the most appropriate image based on factors like screen size, resolution, and viewport width.</p>
+                    <p>This technique improves performance by serving smaller images to mobile devices and larger, higher-quality images to desktop users.</p>
+                </details>
+                
+                <details>
+                    <summary>What are ARIA attributes?</summary>
+                    <p><abbr title="Accessible Rich Internet Applications">ARIA</abbr> attributes provide additional semantic information to assistive technologies. Common examples include <code>aria-label</code> for providing accessible names, <code>aria-current</code> for indicating the current page in navigation, and <code>aria-describedby</code> for associating descriptions with elements.</p>
+                </details>
+            </section>
+            
+            <section>
+                <h3>Dialog Element</h3>
+                <p>The <code>&lt;dialog&gt;</code> element represents a dialog box or modal. When used with the <code>open</code> attribute, it displays without JavaScript.</p>
+                
+                <dialog open>
+                    <p><strong>Information:</strong> This is an open dialog for demonstration purposes. In production, dialogs are typically controlled with JavaScript to show and hide them dynamically.</p>
+                </dialog>
+            </section>
+            
+            <section>
+                <h3>Progress and Meter Elements</h3>
+                <p>These elements visualize scalar measurements and progress indicators.</p>
+                
+                <h4>Progress Bar</h4>
+                <p>Course completion: <progress value="40" max="100">40%</progress> (40% complete)</p>
+                <p>Assignment submission: <progress value="75" max="100">75%</progress> (3 of 4 assignments submitted)</p>
+                
+                <h4>Meter Gauge</h4>
+                <p>Server CPU load: <meter min="0" max="100" low="30" high="80" optimum="50" value="65">65%</meter> (moderate usage)</p>
+                <p>Disk space used: <meter min="0" max="1000" low="200" high="800" optimum="100" value="350">350 GB</meter> of 1 TB</p>
+                <p>Battery level: <meter min="0" max="100" low="20" high="80" optimum="100" value="45">45%</meter></p>
+            </section>
+            
+            <section>
+                <h3>Complex Table Example</h3>
+                <table>
+                    <caption>Programming Languages Comparison</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Language</th>
+                            <th scope="col">Paradigm</th>
+                            <th scope="col">Typing</th>
+                            <th scope="col">Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Python</th>
+                            <td>Multi-paradigm</td>
+                            <td>Dynamic</td>
+                            <td>Data Science, AI, Web</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">JavaScript</th>
+                            <td>Multi-paradigm</td>
+                            <td>Dynamic</td>
+                            <td>Web Development</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Java</th>
+                            <td>Object-Oriented</td>
+                            <td>Static</td>
+                            <td>Enterprise, Android</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">C++</th>
+                            <td>Multi-paradigm</td>
+                            <td>Static</td>
+                            <td>Systems, Games</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <aside aria-label="Additional notes">
+                <h4>Accessibility Note</h4>
+                <p>All interactive elements on this page work without JavaScript and are fully keyboard accessible. Try navigating using the <kbd>Tab</kbd> key and activating elements with <kbd>Enter</kbd> or <kbd>Space</kbd>.</p>
+            </aside>
+            
+            <footer>
+                <address>
+                    Contact: <a href="mailto:your.email@student.jkuat.ac.ke">your.email@student.jkuat.ac.ke</a><br>
+                    Department of Computing<br>
+                    Jomo Kenyatta University of Agriculture and Technology
+                </address>
+            </footer>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; <time datetime="2025">2025</time> Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
