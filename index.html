@@ -1,1 +1,74 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Practical — Home</title>
+    <meta name="description" content="A pure-HTML5 site demonstrating modern semantic elements, media, and accessibility.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://yourusername.github.io/html5-practical/">
+</head>
+<body>
+    <a href="#main">Skip to content</a>
+    
+    <header>
+        <h1>HTML5 Practical Project</h1>
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="extras.html">Extras</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <article>
+            <header>
+                <h2>Welcome to Modern HTML5</h2>
+                <p>Published on <time datetime="2025-09-30">September 30, 2025</time></p>
+            </header>
+            
+            <section>
+                <h3>Why HTML5 Semantics Matter</h3>
+                <p>The use of <mark>semantic elements</mark> greatly improves accessibility and search engine optimization. Modern browsers understand the meaning and purpose of each element, making content more discoverable and usable.</p>
+                <p>When documenting keyboard shortcuts, we use special tags. For example, press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save your work, or <kbd>Ctrl</kbd> + <kbd>P</kbd> to print.</p>
+                <p>Inline code samples help explain technical concepts: The <code>&lt;main&gt;</code> element serves as a landmark that assists screen readers in navigating page content efficiently.</p>
+            </section>
+            
+            <section>
+                <h3>Internal Navigation</h3>
+                <p>This page demonstrates internal anchor links. Try jumping directly to the <a href="#more-info">More Information</a> section below without scrolling manually.</p>
+            </section>
+            
+            <section id="more-info">
+                <h3>More Information</h3>
+                <p>Sample program output is displayed like this: <samp>Build successful. 0 errors, 0 warnings.</samp></p>
+                <p>Important acronyms should be properly marked up: The <abbr title="World Wide Web Consortium">W3C</abbr> develops web standards, while <abbr title="HyperText Markup Language">HTML</abbr> is the foundation of web content.</p>
+                
+                <blockquote cite="https://www.w3.org/">
+                    "The Web is for everyone and we are committed to making it accessible."
+                    <footer>— <cite>W3C Mission Statement</cite></footer>
+                </blockquote>
+            </section>
+            
+            <aside aria-label="Side notes">
+                <h4>Historical Note</h4>
+                <p>Did you know? On <time datetime="1991-08-06">August 6, 1991</time>, Tim Berners-Lee announced the World Wide Web project publicly on the alt.hypertext newsgroup, marking the public debut of the Web.</p>
+            </aside>
+            
+            <footer>
+                <address>
+                    Contact: <a href="mailto:your.email@student.jkuat.ac.ke">your.email@student.jkuat.ac.ke</a><br>
+                    Department of Computing<br>
+                    Jomo Kenyatta University of Agriculture and Technology
+                </address>
+            </footer>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; <time datetime="2025">2025</time> Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
