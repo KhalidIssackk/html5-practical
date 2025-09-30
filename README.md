@@ -51,4 +51,68 @@ Demonstrates:
 ## Accessibility Features
 
 - ✅ Skip navigation link on every page
-- ✅ Semantic HTML5 landmarks
+- ✅ Semantic HTML5 landmarks (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- ✅ Proper heading hierarchy (no skipped levels)
+- ✅ ARIA attributes (`aria-label`, `aria-current`)
+- ✅ Alternative text on all images
+- ✅ Video captions using WebVTT
+- ✅ Meaningful link text (no "click here")
+- ✅ Table headers with proper scope attributes
+- ✅ Keyboard accessible interactive elements
+
+## Validation
+
+All pages pass W3C HTML Validator with zero errors:
+- Validate at: https://validator.w3.org/
+
+## Technologies Used
+
+- HTML5 only (no CSS, no JavaScript)
+- WebVTT for video captions
+- Semantic markup throughout
+- ARIA attributes for enhanced accessibility
+
+## Live Site
+
+**GitHub Pages URL:** https://yourusername.github.io/html5-practical/
+
+## Local Testing
+
+1. Clone this repository
+2. Open `index.html` in a modern web browser
+3. Navigate between pages using the navigation menu
+4. Test video captions by clicking the CC button
+5. Try keyboard navigation using Tab and Enter keys
+
+## File Structure
+
+```
+html5-practical/
+├── index.html          # Home page with semantic elements
+├── about.html          # About page with lists and history
+├── media.html          # Media gallery with audio/video
+├── extras.html         # Tables and interactive elements
+├── assets/
+│   ├── images/
+│   │   ├── hero-small.jpg
+│   │   ├── hero-medium.jpg
+│   │   └── hero-large.jpg
+│   ├── audio/
+│   │   └── sample.mp3
+│   ├── video/
+│   │   ├── sample.mp4
+│   │   └── sample.webm
+│   └── captions/
+│       └── sample.vtt
+└── README.md           # This file
+```
+
+## Author
+
+**Your Name**  
+Department of Computing  
+Jomo Kenyatta University of Agriculture and Technology
+
+## License
+
+© 2025 Your Name. All rights reserved.
